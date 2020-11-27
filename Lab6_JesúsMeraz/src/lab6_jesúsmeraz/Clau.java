@@ -59,11 +59,11 @@ public class Clau {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (ClaudiList t : List) {
-                bw.write(t.getNombre() + "|");
-                bw.write(t.getTipo() + "|");
-                bw.write(t.getGenero() + "|");
-                bw.write(t.getPuntuacion() + "|");
-                bw.write(t.getAños() + "|");
+                bw.write(t.getNombre() + "/");
+                bw.write(t.getTipo() + "/");
+                bw.write(t.getGenero() + "/");
+                bw.write(t.getPuntuacion() + "/");
+                bw.write(t.getAños() + "/");
             }
             bw.flush();
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class Clau {
         if (archivo.exists()) {
             try {
                 entrada = new Scanner(archivo);
-                entrada.useDelimiter("|");
+                entrada.useDelimiter("/");
                 while (entrada.hasNext()) {
                     List.add(new ClaudiList(entrada.next(), entrada.next(), entrada.next(), entrada.nextInt(), entrada.nextInt()));
                 }
