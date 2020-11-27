@@ -5,8 +5,10 @@
  */
 package lab6_jesúsmeraz;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,7 +70,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        TextAreaArchivo = new javax.swing.JTextArea();
+        vistazo = new javax.swing.JTextArea();
         CargarArchivo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -249,9 +251,9 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar", jPanel1);
 
-        TextAreaArchivo.setColumns(20);
-        TextAreaArchivo.setRows(5);
-        jScrollPane3.setViewportView(TextAreaArchivo);
+        vistazo.setColumns(20);
+        vistazo.setRows(5);
+        jScrollPane3.setViewportView(vistazo);
 
         CargarArchivo.setText("Cargar Archivo");
         CargarArchivo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -639,9 +641,46 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_CargarArchivoActionPerformed
 
     private void CargarArchivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CargarArchivoMouseClicked
+//        Clau u = new Clau(selectedFile.getPath());
+//        u.CargarArchivo(TextAreaArchivo);
         // TODO add your handling code here:
-        Clau u = new Clau(selectedFile.getPath());
-        u.CargarArchivo(TextAreaArchivo);
+        File fichero = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        vistazo.setText("");
+        try {
+            JFileChooser jfc = new JFileChooser("./");
+            FileNameExtensionFilter filtro = 
+                    new FileNameExtensionFilter(
+                            "Archivos de Texto", "txt");
+            FileNameExtensionFilter filtro2 = 
+                new FileNameExtensionFilter(
+                        "Imagenes", "jpg", "png", "bmp");
+            jfc.setFileFilter(filtro);
+            jfc.addChoosableFileFilter(filtro2);            
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION)
+            {
+               fichero = jfc.getSelectedFile();
+               fr = new FileReader(fichero);
+               br=new BufferedReader(fr);
+               String linea;
+               vistazo.setText("");
+               while(  (linea=br.readLine()) !=null  ){                    
+                    vistazo.append(linea);
+                    vistazo.append("\n");
+                }
+            } //fin if
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            br.close();
+            fr.close();
+        } catch (IOException ex) {
+        }
+
     }//GEN-LAST:event_CargarArchivoMouseClicked
 
     private void EliminarSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarSerVivoMouseClicked
@@ -709,7 +748,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTable TablaEliminar1;
     private javax.swing.JTable TablaGuardar;
     private javax.swing.JTable TablaModificar;
-    private javax.swing.JTextArea TextAreaArchivo;
     private javax.swing.JComboBox<String> Tipo;
     private javax.swing.JComboBox<String> Tipo1;
     private javax.swing.JButton jButton1;
@@ -738,6 +776,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JSpinner puntuacion;
     private javax.swing.JSpinner puntuacion1;
+    private javax.swing.JTextArea vistazo;
     // End of variables declaration//GEN-END:variables
 static ArrayList<ClaudiList> List = new ArrayList();
     static Clau uni = new Clau();
