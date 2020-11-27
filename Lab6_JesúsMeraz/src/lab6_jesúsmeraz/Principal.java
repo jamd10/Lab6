@@ -493,7 +493,7 @@ public class Principal extends javax.swing.JFrame {
             Años.setText("");
             Tipo.setSelectedIndex(0);
             Genero.setSelectedIndex(0);
-            puntuacion.setValue(0);
+            puntuacion.setValue(1);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -553,7 +553,7 @@ public class Principal extends javax.swing.JFrame {
                 Años1.setText("");
                 Tipo1.setSelectedIndex(0);
                 Genero1.setSelectedIndex(0);
-                puntuacion1.setValue(0);
+                puntuacion1.setValue(1);
                 JOptionPane.showMessageDialog(null, "Muchas gracias, la modificacion se realizo con exito :)");
             } // Fin If
         } catch (Exception e) {
