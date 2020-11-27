@@ -32,7 +32,7 @@
                           <Component id="jButton3" min="-2" pref="188" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="179" max="32767" attributes="0"/>
+                  <EmptySpace pref="132" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -93,7 +93,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ingrese a&#xf1;os:"/>
+            <Property name="text" type="java.lang.String" value="Ingrese a&#xf1;o de lanzamiento:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="A&#xf1;os1">

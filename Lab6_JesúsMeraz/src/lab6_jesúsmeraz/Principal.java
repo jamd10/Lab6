@@ -91,7 +91,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel8.setText("Ingrese puntuación:");
 
-        jLabel9.setText("Ingrese años:");
+        jLabel9.setText("Ingrese año de lanzamiento:");
 
         Años1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
@@ -134,7 +134,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(ModificarLayout.createSequentialGroup()
                         .addGap(238, 238, 238)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         ModificarLayout.setVerticalGroup(
             ModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -493,6 +493,7 @@ public class Principal extends javax.swing.JFrame {
             Años.setText("");
             Tipo.setSelectedIndex(0);
             Genero.setSelectedIndex(0);
+            puntuacion.setValue(0);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -552,6 +553,7 @@ public class Principal extends javax.swing.JFrame {
                 Años1.setText("");
                 Tipo1.setSelectedIndex(0);
                 Genero1.setSelectedIndex(0);
+                puntuacion1.setValue(0);
                 JOptionPane.showMessageDialog(null, "Muchas gracias, la modificacion se realizo con exito :)");
             } // Fin If
         } catch (Exception e) {
@@ -650,28 +652,27 @@ public class Principal extends javax.swing.JFrame {
         vistazo.setText("");
         try {
             JFileChooser jfc = new JFileChooser("./");
-            FileNameExtensionFilter filtro = 
-                    new FileNameExtensionFilter(
+            FileNameExtensionFilter filtro
+                    = new FileNameExtensionFilter(
                             "Archivos de Texto", "txt");
-            FileNameExtensionFilter filtro2 = 
-                new FileNameExtensionFilter(
-                        "Imagenes", "jpg", "png", "bmp");
+            FileNameExtensionFilter filtro2
+                    = new FileNameExtensionFilter(
+                            "Imagenes", "jpg", "png", "bmp");
             jfc.setFileFilter(filtro);
-            jfc.addChoosableFileFilter(filtro2);            
+            jfc.addChoosableFileFilter(filtro2);
             int seleccion = jfc.showOpenDialog(this);
-            if (seleccion == JFileChooser.APPROVE_OPTION)
-            {
-               fichero = jfc.getSelectedFile();
-               fr = new FileReader(fichero);
-               br=new BufferedReader(fr);
-               String linea;
-               vistazo.setText("");
-               while(  (linea=br.readLine()) !=null  ){                    
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                fichero = jfc.getSelectedFile();
+                fr = new FileReader(fichero);
+                br = new BufferedReader(fr);
+                String linea;
+                vistazo.setText("");
+                while ((linea = br.readLine()) != null) {
                     vistazo.append(linea);
                     vistazo.append("\n");
                 }
             } //fin if
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
