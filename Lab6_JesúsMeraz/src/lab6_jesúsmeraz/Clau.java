@@ -59,11 +59,11 @@ public class Clau {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (ClaudiList t : List) {
-                bw.write(t.getNombre() + "|");
-                bw.write(t.getTipo() + "|");
-                bw.write(t.getGenero() + "|");
-                bw.write(t.getPuntuacion() + "|");
-                bw.write(t.getAños() + "|");
+                bw.write(t.getNombre() + ";");
+                bw.write(t.getTipo() + ";");
+                bw.write(t.getGenero() + ";");
+                bw.write(t.getPuntuacion() + ";");
+                bw.write(t.getAños() + ";");
             }
             bw.flush();
         } catch (Exception e) {
