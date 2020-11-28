@@ -614,7 +614,7 @@ public class Principal extends javax.swing.JFrame {
                                 if (j == modelo.getColumnCount() - 1) {
                                     acum += modelo.getValueAt(i, j);
                                 } else {
-                                    acum += modelo.getValueAt(i, j) + "|";
+                                    acum += modelo.getValueAt(i, j) + "/";
                                 } // Fin If
                             } // Fin For
                             acum += "\n";
